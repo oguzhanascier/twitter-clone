@@ -1,26 +1,29 @@
 <template>
-  <div class="flex container w-full">
-    <aside class="flex flex-col w-1/5 h-full  h-screen justify-between  border-r">
-      <section class="flex flex-col  items-center w-full  mt-5">
-        <div class="flex">
-          <i class="w-full fab fa-twitter text-3xl mb-2 text-blue"></i>
+  <div class=" flex  container  h-screen w-full">
+    <aside class="flex flex-col lg:w-1/5  h-full  h-screen justify-between  px-5  border-r">
+      <section class="flex flex-col   w-full mt-5">
+        <div class="flex ml-2">
+          <i class="w-full fab fa-twitter text-3xl mb-3 mt-5 text-blue"></i>
         </div>
         <button
-          class="outline-none hover:text-blue hover:bg-lightblue w-full  mt-2 rounded font-semibold p-2  md:text-center  lg:text-center"
+          class="outline-none hover:text-blue hover:bg-lightblue w-full  mt-4 rounded font-semibold p-2 flex md:justify-start justify-center "
           v-for="tab in tabs" :key="tab.title">
-          <div>
-            <i :class="`${tab.icon} text-2xl  md:text-center  lg:text-center`"></i>
-          </div>
-          <span class="md:block hidden">{{ tab.title }}</span>
+          <i :class="`${tab.icon} text-2xl flex items-center `"></i>
+          <span class="md:inline-block hidden ml-5">{{ tab.title }}</span>
         </button>
-        <button class="outline-none  bg-blue hover:bg-darkblue w-12 h-12  mt-2 rounded-full text-white">
+        <button class="outline-none  bg-blue hover:bg-darkblue  w-12 lg:w-full h-12  mt-10  rounded-full text-white">
           <i class="fas fa-plus"></i>
         </button>
       </section>
 
-      <div class="w-full text-center">
-        <button>
-          <img src="./assets/profile.png" class="w-12 h-12 bg-gray-200 rounded-full" alt="">
+      <div class="w-full">
+        <button class="flex flex-row-reverse mb-5">
+          <div class="   flex-col text-start  ml-5 md:flex hidden ">
+            <span class="font-semibold">Marla Singer</span>
+            <span>@marla619</span>
+          </div>
+          <img src="./assets/hGiHpNc4_400x400-1686512996.jpg" class="h-12 w-auto bg-gray-200 rounded-full" alt="">
+          
         </button>
       </div>
     </aside>
