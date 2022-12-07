@@ -1,4 +1,4 @@
-# twitter-clone
+# nodeal
 
 ## Project setup
 ```
