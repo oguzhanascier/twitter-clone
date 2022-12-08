@@ -1,6 +1,6 @@
 <template>
   <div class=" flex  container  h-screen w-full relative">
-    <aside class="flex flex-col   lg:w-1/5  h-full  h-screen justify-between  px-5  border-r bg-white">
+    <aside class="flex flex-col   lg:w-1/5  h-full  h-screen justify-between  px-5  border-r bg-white ">
       <section class="flex flex-col   w-full mt-5">
         <div class="flex ml-2">
           <i class="w-full fab fa-twitter text-3xl mb-3 mt-1 text-blue"></i>
@@ -27,7 +27,7 @@
         </button>
       </div>
     </aside>
-    <main class="lg:w-1/2 h-full border-r w-full ">
+    <main class="lg:w-1/2 h-full border-r w-full overflow-y-scroll">
       <header class="flex items-center justify-between py-3 px-5 border-b ">
         <h2 class="font-bold  mt-1 text-xl ">Home</h2>
         <i class="far fa-star text-xl text-blue"></i>
@@ -39,7 +39,8 @@
               alt="">
           </div>
           <form class="w-full relative  p-5">
-            <textarea class="w-full  focus:outline-none h-24 " placeholder="What's up?"></textarea>
+            <textarea class="w-full  focus:outline-none h-24 " placeholder="What's up?"
+              v-model="tweet.content"></textarea>
             <div class="absolute flex justify-between w-full bottom-1 left-0">
               <div class="mt-5 flex">
                 <i class="text-lg text-blue mr-4 far fa-image"></i>
@@ -47,58 +48,60 @@
                 <i class="text-lg text-blue mr-4 far fa-chart-bar"></i>
                 <i class="text-lg text-blue mr-4 far fa-smile"></i>
               </div>
-              <button class="bg-blue h-10 px-4 rounded-full text-white font-semibold mr-3">Tweet</button>
+              <button class="bg-blue h-10 px-4 rounded-full text-white font-semibold mr-3"
+                @click.prevent="addNewTweet">Tweet</button>
             </div>
           </form>
         </div>
 
         <!-- My Tweet -->
+        <div class="flex flex-col-reverse">
 
-        <div class="border-b cursor-pointer hover:bg-gray-200">
-          <div class="text p-3 ml-4 flex flex-col border-">
-            <div class="flex relative">
-              <img src="./assets/hGiHpNc4_400x400-1686512996.jpg" class="h-12 w-12  flex-none rounded-full absolute"
-                alt="">
-              <div class="flex gap-2 ml-16 mb-3 justify-between w-full items-center">
-                <div class="flex gap-1">
-                  <h6 class="font-semibold">Marla Singer</h6>
-                  <p class="text-dark text-sm">@marla619</p>
-                  <p class="text-dark text-sm">6hr</p>
+          <div class="border-b cursor-pointer hover:bg-gray-200 " v-for="tweet in tweets" :key="tweet">
+            <div class="text p-3 ml-4 flex flex-col border-">
+              <div class="flex relative">
+                <img src="./assets/hGiHpNc4_400x400-1686512996.jpg" class="h-12 w-12  flex-none rounded-full absolute"
+                  alt="">
+                <div class="flex gap-2 ml-16 mb-3 justify-between w-full items-center">
+                  <div class="flex gap-1">
+                    <h6 class="font-semibold">Marla Singer</h6>
+                    <p class="text-dark text-sm">@marla619</p>
+                    <p class="text-dark text-sm">6hr</p>
+                  </div>
+                  <i class="fas fa-angle-down text-dark ml-auto"></i>
                 </div>
-                <i class="fas fa-angle-down text-dark ml-auto"></i>
+
               </div>
-  
+              <p class="ml-16">{{ tweet.content }}</p>
+              <section class="text-bottom flex  justify-around mt-5 text-dark">
+                <i class="far fa-comment mr-3 cursor-pointer hover:text-teal-400 transition-all "></i>
+                <i class="fas fa-retweet mr-3 cursor-pointer hover:text-gray-800 "></i>
+                <i class="fas fa-heart mr-3 cursor-pointer hover:text-red-600 "></i>
+                <i class="fas fa-share-square mr-3 cursor-pointer hover:text-indigo-600 "></i>
+              </section>
             </div>
-            <p class="ml-16">Altarın oğlu tarkan</p>
-            <section class="text-bottom flex  justify-around mt-5 text-dark">
-              <i class="far fa-comment mr-3 cursor-pointer hover:text-teal-400 transition-all "></i>
-              <i class="fas fa-retweet mr-3 cursor-pointer hover:text-gray-800 "></i>
-              <i class="fas fa-heart mr-3 cursor-pointer hover:text-red-600 "></i>
-              <i class="fas fa-share-square mr-3 cursor-pointer hover:text-indigo-600 "></i>
-            </section>
+
           </div>
-  
         </div>
-       
+
 
         <!-- Following Tweet -->
 
         <div class="border-b cursor-pointer hover:bg-gray-200" v-for="follow in following" :key="follow.title">
           <div class="text p-3 ml-4 flex flex-col border-">
             <div class="flex relative">
-              <img :src="`${follow.src}`" class="h-12 w-12  flex-none rounded-full absolute"
-                alt="">
+              <img :src="`${follow.src}`" class="h-12 w-12  flex-none rounded-full absolute" alt="">
               <div class="flex gap-2 ml-16 mb-3 justify-between w-full items-center">
                 <div class="flex gap-1">
-                  <h6 class="font-semibold">{{follow.name}}</h6>
-                  <p class="text-dark text-sm">{{follow.handle}}</p>
-                  <p class="text-dark text-sm">{{follow.time}}</p>
+                  <h6 class="font-semibold">{{ follow.name }}</h6>
+                  <p class="text-dark text-sm">{{ follow.handle }}</p>
+                  <p class="text-dark text-sm">{{ follow.time }}</p>
                 </div>
                 <i class="fas fa-angle-down text-dark ml-auto"></i>
               </div>
-  
+
             </div>
-            <p class="ml-16">{{follow.tweet}}</p>
+            <p class="ml-16">{{ follow.tweet }}</p>
             <section class="text-bottom flex  justify-around mt-5 text-dark">
               <i class="far fa-comment mr-3 cursor-pointer hover:text-teal-400 transition-all "></i>
               <i class="fas fa-retweet mr-3 cursor-pointer hover:text-gray-800 "></i>
@@ -106,13 +109,13 @@
               <i class="fas fa-share-square mr-3 cursor-pointer hover:text-indigo-600 "></i>
             </section>
           </div>
-  
+
         </div>
 
 
-        
-        
-        
+
+
+
       </div>
 
     </main>
@@ -129,11 +132,12 @@
             <i class="fas fa-cog text-lg text-blue"></i>
           </div>
           <div class="trending ">
-              <div class="pt-2 relative border-b  pb-2 hover:bg-gray-200 p-3 cursor-pointer" v-for="trend in trending" :key="trend.top">
-                <i class="fas fa-angle-down text-lg text-dark absolute top-3 right-5"></i>
-                <span class="text-xs text-dark leading-tight">{{ trend.top }}</span>
-                <h5 class="font-semibold text-sm">{{ trend.title }}</h5>
-                <span class="text-sm text-dark leading-tight">{{ trend.bottom }}</span>
+            <div class="pt-2 relative border-b  pb-2 hover:bg-gray-200 p-3 cursor-pointer" v-for="trend in trending"
+              :key="trend.top">
+              <i class="fas fa-angle-down text-lg text-dark absolute top-3 right-5"></i>
+              <span class="text-xs text-dark leading-tight">{{ trend.top }}</span>
+              <h5 class="font-semibold text-sm">{{ trend.title }}</h5>
+              <span class="text-sm text-dark leading-tight">{{ trend.bottom }}</span>
             </div>
             <button class="text-blue p-3 text w-full outline-none flex">Show More</button>
           </div>
@@ -169,11 +173,25 @@ export default {
         { top: 'Trending', title: 'When Beyonce', bottom: '25.4k tweets' },
       ],
       following: [
-        {src: 'elon.jpg', name: 'Elon Musk', handle: '@teslaBoy', time: '20 min', tweet: 'Should I just quarantine on mars??'},
-        {src: 'kevin.jpg', name: 'Kevin Hart', handle: '@miniRock', time: '55 min', tweet: 'Should me and the rock do another sub-par movie together????'},
-        {src: 'elon.jpg', name: 'Elon Musk', handle: '@teslaBoy', time: '1.4 hr', tweet: 'Haha just made a flame thrower. Shld I sell them?'},
-        {src: 'elon.jpg', name: 'Elon Musk', handle: '@teslaBoy', time: '1.4 hr', tweet: 'Just did something crazyyyyyyy'}
+        { src: 'elon.jpg', name: 'Elon Musk', handle: '@teslaBoy', time: '20 min', tweet: 'Should I just quarantine on mars??' },
+        { src: 'kevin.jpg', name: 'Kevin Hart', handle: '@miniRock', time: '55 min', tweet: 'Should me and the rock do another sub-par movie together????' },
+        { src: 'elon.jpg', name: 'Elon Musk', handle: '@teslaBoy', time: '1.4 hr', tweet: 'Haha just made a flame thrower. Shld I sell them?' },
+        { src: 'elon.jpg', name: 'Elon Musk', handle: '@teslaBoy', time: '1.4 hr', tweet: 'Just did something crazyyyyyyy' }
       ],
+
+
+      tweets: [
+        { content: "Tyler? You're the worst thing that's ever happened to me" }
+      ],
+      tweet: { content: '' }
+    }
+  },
+  methods: {
+    addNewTweet() {
+      let newTweet = {
+        content: this.tweet.content
+      };
+      this.tweets.push(newTweet)
     }
   }
 }
