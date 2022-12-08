@@ -63,7 +63,7 @@
                 <div class="flex gap-1">
                   <h6 class="font-semibold">Marla Singer</h6>
                   <p class="text-dark text-sm">@marla619</p>
-                  <p class="text-dark text-sm">6h</p>
+                  <p class="text-dark text-sm">6hr</p>
                 </div>
                 <i class="fas fa-angle-down text-dark ml-auto"></i>
               </div>
@@ -83,22 +83,22 @@
 
         <!-- Following Tweet -->
 
-        <div class="border-b cursor-pointer hover:bg-gray-200">
+        <div class="border-b cursor-pointer hover:bg-gray-200" v-for="follow in following" :key="follow.title">
           <div class="text p-3 ml-4 flex flex-col border-">
             <div class="flex relative">
-              <img src="./assets/hGiHpNc4_400x400-1686512996.jpg" class="h-12 w-12  flex-none rounded-full absolute"
+              <img :src="`${follow.src}`" class="h-12 w-12  flex-none rounded-full absolute"
                 alt="">
               <div class="flex gap-2 ml-16 mb-3 justify-between w-full items-center">
                 <div class="flex gap-1">
-                  <h6 class="font-semibold">Marla Singer</h6>
-                  <p class="text-dark text-sm">@marla619</p>
-                  <p class="text-dark text-sm">6h</p>
+                  <h6 class="font-semibold">{{follow.name}}</h6>
+                  <p class="text-dark text-sm">{{follow.handle}}</p>
+                  <p class="text-dark text-sm">{{follow.time}}</p>
                 </div>
                 <i class="fas fa-angle-down text-dark ml-auto"></i>
               </div>
   
             </div>
-            <p class="ml-16">Altarın oğlu tarkan</p>
+            <p class="ml-16">{{follow.tweet}}</p>
             <section class="text-bottom flex  justify-around mt-5 text-dark">
               <i class="far fa-comment mr-3 cursor-pointer hover:text-teal-400 transition-all "></i>
               <i class="fas fa-retweet mr-3 cursor-pointer hover:text-gray-800 "></i>
@@ -169,10 +169,10 @@ export default {
         { top: 'Trending', title: 'When Beyonce', bottom: '25.4k tweets' },
       ],
       following: [
-        {src: 'elon.jpg', name: 'Elon Musk', handle: '@teslaBoy', time: '20 min', tweet: 'Should I just quarantine on mars??', comments: '1,000', retweets: '550', like: '1,000,003'},
-        {src: 'kevin.jpg', name: 'Kevin Hart', handle: '@miniRock', time: '55 min', tweet: 'Should me and the rock do another sub-par movie together????', comments: '2,030', retweets: '50', like: '20,003'},
-        {src: 'elon.jpg', name: 'Elon Musk', handle: '@teslaBoy', time: '1.4 hr', tweet: 'Haha just made a flame thrower. Shld I sell them?', comments: '100,000', retweets: '1,000,002', like: '5,000,003'},
-        {src: 'elon.jpg', name: 'Elon Musk', handle: '@teslaBoy', time: '1.4 hr', tweet: 'Just did something crazyyyyyyy', comments: '100,500', retweets: '1,000,032', like: '5,000,103'}
+        {src: 'elon.jpg', name: 'Elon Musk', handle: '@teslaBoy', time: '20 min', tweet: 'Should I just quarantine on mars??'},
+        {src: 'kevin.jpg', name: 'Kevin Hart', handle: '@miniRock', time: '55 min', tweet: 'Should me and the rock do another sub-par movie together????'},
+        {src: 'elon.jpg', name: 'Elon Musk', handle: '@teslaBoy', time: '1.4 hr', tweet: 'Haha just made a flame thrower. Shld I sell them?'},
+        {src: 'elon.jpg', name: 'Elon Musk', handle: '@teslaBoy', time: '1.4 hr', tweet: 'Just did something crazyyyyyyy'}
       ],
     }
   }
