@@ -23,18 +23,20 @@
             <span>@marla619</span>
           </div>
           <img src="./assets/hGiHpNc4_400x400-1686512996.jpg" class="h-12 w-auto bg-gray-200 rounded-full" alt="">
-          
+
         </button>
       </div>
     </aside>
     <main class="md:w-1/2 h-full border-r w-full ">
-        <header class="flex items-center justify-between py-3 px-5 border-b ">
-          <h2 class="font-bold  mt-1 text-xl ">Home</h2>
-          <i class="far fa-star text-xl text-blue"></i>
-        </header>
+      <header class="flex items-center justify-between py-3 px-5 border-b ">
+        <h2 class="font-bold  mt-1 text-xl ">Home</h2>
+        <i class="far fa-star text-xl text-blue"></i>
+      </header>
+      <div class="border-b">
         <div class="flex border-b p-2 ">
           <div class="p-2 flex-none">
-            <img src="./assets/hGiHpNc4_400x400-1686512996.jpg" class="w-14 h-14 ml-2 rounded-full border flex-none" alt="">
+            <img src="./assets/hGiHpNc4_400x400-1686512996.jpg" class="w-14 h-14 ml-2 rounded-full border flex-none"
+              alt="">
           </div>
           <form class="w-full relative  p-5">
             <textarea class="w-full  focus:outline-none h-24 " placeholder="What's up?"></textarea>
@@ -49,10 +51,32 @@
             </div>
           </form>
         </div>
-        <div class="text p-3">
-          <img src="./assets/hGiHpNc4_400x400-1686512996.jpg" class="h-12 w-12 flex-none rounded-full" alt="">
-          
+        <div class="text p-3 flex flex-col">
+          <div class="flex relative">
+            <img src="./assets/hGiHpNc4_400x400-1686512996.jpg" class="h-12 w-12 flex-none rounded-full absolute"
+              alt="">
+            <div class="flex gap-2 ml-16 mb-3 justify-between w-full items-center">
+              <div class="flex gap-3">
+                <h6 class="font-semibold">Marla Singer</h6>
+                <p class="text-dark">@marla619</p>
+                <p class="text-dark">6h</p>
+              </div>
+              <i class="fas fa-angle-down text-dark ml-auto"></i>
+            </div>
+
+          </div>
+          <p class="ml-16">Altarın oğlu tarkan</p>
+          <section class="text-bottom flex  justify-around mt-5 text-dark">
+            <i class="far fa-comment mr-3 cursor-pointer hover:text-teal-400 transition-all "></i>
+            <i class="fas fa-retweet mr-3 cursor-pointer hover:text-gray-800 "></i>
+            <i class="fas fa-heart mr-3 cursor-pointer hover:text-red-600 "></i>
+            <i class="fas fa-share-square mr-3 cursor-pointer hover:text-indigo-600 "></i>
+          </section>
+
+
         </div>
+      </div>
+
     </main>
     <section class="trend">
 
