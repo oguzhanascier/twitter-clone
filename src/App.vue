@@ -49,6 +49,10 @@
             </div>
           </form>
         </div>
+        <div class="text p-3">
+          <img src="./assets/hGiHpNc4_400x400-1686512996.jpg" class="h-12 w-12 flex-none rounded-full" alt="">
+          
+        </div>
     </main>
     <section class="trend">
 
