@@ -72,14 +72,13 @@
             <i class="fas fa-heart mr-3 cursor-pointer hover:text-red-600 "></i>
             <i class="fas fa-share-square mr-3 cursor-pointer hover:text-indigo-600 "></i>
           </section>
-
-
         </div>
       </div>
 
     </main>
-    <section class="trend">
-
+    <section class="trend w-1/3 px-6 py-2 relative">
+      <input class="w-full border rounded-full pl-12 p-2  text-sm bg-lighter" type="text" placeholder="Search Twitter">
+      <i class="fas fa-search absolute left-0 top-0 mt-5 ml-12 text-sm text-light"></i>
     </section>
   </div>
 
