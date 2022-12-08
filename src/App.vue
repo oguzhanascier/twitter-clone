@@ -27,9 +27,14 @@
         </button>
       </div>
     </aside>
-    <main>
-      
+    <main class="w-1/2">
+        <header>
+          
+        </header>
     </main>
+    <section class="trend">
+
+    </section>
   </div>
 
 </template>
