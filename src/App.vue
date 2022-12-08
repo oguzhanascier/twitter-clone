@@ -1,9 +1,9 @@
 <template>
-  <div class=" flex  container  h-screen w-full">
-    <aside class="flex flex-col lg:w-1/5  h-full  h-screen justify-between  px-5  border-r">
+  <div class=" flex  container  h-screen w-full relative">
+    <aside class="flex flex-col   lg:w-1/5  h-full  h-screen justify-between  px-5  border-r bg-red-300 sm:bg-white">
       <section class="flex flex-col   w-full mt-5">
         <div class="flex ml-2">
-          <i class="w-full fab fa-twitter text-3xl mb-3 mt-5 text-blue"></i>
+          <i class="w-full fab fa-twitter text-3xl mb-3 mt-1 text-blue"></i>
         </div>
         <button
           class="outline-none hover:text-blue hover:bg-lightblue w-full  mt-2 rounded font-semibold p-2 flex md:justify-start justify-center "
@@ -27,10 +27,28 @@
         </button>
       </div>
     </aside>
-    <main class="w-1/2">
-        <header>
-          
+    <main class="md:w-1/2 h-full border-r w-full ">
+        <header class="flex items-center justify-between py-3 px-5 border-b ">
+          <h2 class="font-bold  mt-1 text-xl ">Home</h2>
+          <i class="far fa-star text-xl text-blue"></i>
         </header>
+        <div class="flex border-b p-2 ">
+          <div class="p-2 flex-none">
+            <img src="./assets/hGiHpNc4_400x400-1686512996.jpg" class="w-14 h-14 ml-2 rounded-full border flex-none" alt="">
+          </div>
+          <form class="w-full relative  p-5">
+            <textarea class="w-full  focus:outline-none h-24 " placeholder="What's up?"></textarea>
+            <div class="absolute flex justify-between w-full bottom-1 left-0">
+              <div class="mt-5 flex">
+                <i class="text-lg text-blue mr-4 far fa-image"></i>
+                <i class="text-lg text-blue mr-4 fas fa-film"></i>
+                <i class="text-lg text-blue mr-4 far fa-chart-bar"></i>
+                <i class="text-lg text-blue mr-4 far fa-smile"></i>
+              </div>
+              <button class="bg-blue h-10 px-4 rounded-full text-white font-semibold mr-3">Tweet</button>
+            </div>
+          </form>
+        </div>
     </main>
     <section class="trend">
 
