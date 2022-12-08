@@ -6,7 +6,7 @@
           <i class="w-full fab fa-twitter text-3xl mb-3 mt-5 text-blue"></i>
         </div>
         <button
-          class="outline-none hover:text-blue hover:bg-lightblue w-full  mt-4 rounded font-semibold p-2 flex md:justify-start justify-center "
+          class="outline-none hover:text-blue hover:bg-lightblue w-full  mt-2 rounded font-semibold p-2 flex md:justify-start justify-center "
           v-for="tab in tabs" :key="tab.title">
           <i :class="`${tab.icon} text-2xl flex items-center `"></i>
           <span class="md:inline-block hidden ml-5">{{ tab.title }}</span>
@@ -27,6 +27,9 @@
         </button>
       </div>
     </aside>
+    <main>
+      
+    </main>
   </div>
 
 </template>
