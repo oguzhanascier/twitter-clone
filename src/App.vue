@@ -1,6 +1,6 @@
 <template>
   <div class=" flex  container  h-screen w-full relative">
-    <aside class="flex flex-col   lg:w-1/5  h-full  h-screen justify-between  px-5  border-r bg-red-300 sm:bg-white">
+    <aside class="flex flex-col   lg:w-1/5  h-full  h-screen justify-between  px-5  border-r bg-white">
       <section class="flex flex-col   w-full mt-5">
         <div class="flex ml-2">
           <i class="w-full fab fa-twitter text-3xl mb-3 mt-1 text-blue"></i>
@@ -27,7 +27,7 @@
         </button>
       </div>
     </aside>
-    <main class="md:w-1/2 h-full border-r w-full ">
+    <main class="lg:w-1/2 h-full border-r w-full ">
       <header class="flex items-center justify-between py-3 px-5 border-b ">
         <h2 class="font-bold  mt-1 text-xl ">Home</h2>
         <i class="far fa-star text-xl text-blue"></i>
@@ -51,15 +51,15 @@
             </div>
           </form>
         </div>
-        <div class="text p-3 flex flex-col">
+        <div class="text p-3 ml-4 flex flex-col">
           <div class="flex relative">
-            <img src="./assets/hGiHpNc4_400x400-1686512996.jpg" class="h-12 w-12 flex-none rounded-full absolute"
+            <img src="./assets/hGiHpNc4_400x400-1686512996.jpg" class="h-12 w-12  flex-none rounded-full absolute"
               alt="">
             <div class="flex gap-2 ml-16 mb-3 justify-between w-full items-center">
-              <div class="flex gap-3">
+              <div class="flex gap-1">
                 <h6 class="font-semibold">Marla Singer</h6>
-                <p class="text-dark">@marla619</p>
-                <p class="text-dark">6h</p>
+                <p class="text-dark text-sm">@marla619</p>
+                <p class="text-dark text-sm">6h</p>
               </div>
               <i class="fas fa-angle-down text-dark ml-auto"></i>
             </div>
@@ -76,9 +76,30 @@
       </div>
 
     </main>
-    <section class="trend w-1/3 px-6 py-2 relative">
+    <section class="trend w-1/3 px-6 py-2 relative hidden lg:block">
       <input class="w-full border rounded-full pl-12 p-2  text-sm bg-lighter" type="text" placeholder="Search Twitter">
       <i class="fas fa-search absolute left-0 top-0 mt-5 ml-12 text-sm text-light"></i>
+
+      <section class="w-full bg-lightest rounded mt-5 p-3">
+        <div>
+          <div class="top flex justify-between  items-center border-b pb-3">
+            <h3 class="font-bold text-lg">
+              Trends for You
+            </h3>
+            <i class="fas fa-cog text-lg text-blue"></i>
+          </div>
+          <div class="trending">
+            <div class="pt-2 relative border-b pb-2" v-for="trend in trending" :key="trend.top">
+            <i class="fas fa-angle-down text-lg text-dark absolute top-3 right-5"></i>
+              <span class="text-xs text-dark leading-tight">{{trend.top}}</span>
+              <h5 class="font-semibold text-sm">{{trend.title}}</h5>
+              <span class="text-sm text-dark leading-tight">{{trend.bottom}}</span>
+            </div>
+          </div>
+
+        </div>
+
+      </section>
     </section>
   </div>
 
@@ -98,6 +119,13 @@ export default {
         { icon: 'fas fa-clipboard-list', title: 'Lists', id: 'lists' },
         { icon: 'far fa-user', title: 'Profile', id: 'profile' },
         { icon: 'fas fa-ellipsis-h', title: 'More', id: 'more' }
+      ],
+      trending: [
+        {top: 'Trending in TX', title: 'Gigi', bottom: 'Trending with: Rip Gigi'},
+        {top: 'Music', title: 'We Won', bottom: '135K Tweets'},
+        {top: 'Pop', title: 'Blue Ivy', bottom: '40k tweets'},
+        {top: 'Trending in US', title: 'Denim Day', bottom: '40k tweets'},
+        {top: 'Trending', title: 'When Beyonce', bottom: '25.4k tweets'},
       ],
     }
   }
